@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBS Catalog | Specialty Bolt and Screw</title>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<header id="top">
+  <a class="logo" href="#/"><img src="logo.jpg" alt="Specialty Bolt and Screw"></a>
+  <form id="searchForm" autocomplete="off" role="search">
+    <input id="q" type="search" placeholder="Search part # or description  ( / )" aria-label="Search parts">
+  </form>
+  <a class="shoplink" href="https://shop.specialtybolt.com" target="_blank" rel="noopener">shop.specialtybolt.com</a>
+</header>
+<nav id="crumbs" aria-label="Breadcrumb"></nav>
+<main id="app"><div class="loading">Loading catalog&hellip;</div></main>
+<footer>&copy; Specialty Bolt and Screw, Inc. &nbsp;|&nbsp; <span id="stats"></span></footer>
+
+<script>
+// Data files register themselves here (plain .js so the site works from file:// too).
+window.SBS = {
+  _cats: {}, _treeCb: null, _searchCb: null, _catCb: {},
+  tree: function (t, prefix) { SBS.TREE = t; SBS.PREFIX = prefix; SBS._treeCb && SBS._treeCb(); },
+  related: function (r) { SBS.REL = r; },
+  search: function (idx) { SBS.IDX = idx; SBS._searchCb && SBS._searchCb(); },
+  cat: function (id, c) { SBS._cats[id] = c; SBS._catCb[id] && SBS._catCb[id](c); }
+};
+</script>
+<script src="data/tree.js"></script>
+<script src="data/related.js"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
